@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.lang.Math;
 
 public class ArmstrongNumber {
     static int isArmstrong(int number) {
@@ -14,9 +13,10 @@ public class ArmstrongNumber {
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int number = userInput.nextInt();
-        userInput.close();
+        int number;
+        try (Scanner userInput = new Scanner(System.in)) {
+            number = userInput.nextInt();
+        }
         int result = isArmstrong(number);
         if (number == result) {
             System.out.println("It's an armstrong number");

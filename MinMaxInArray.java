@@ -22,13 +22,15 @@ public class MinMaxInArray {
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int size = userInput.nextInt();
-        int[] arr = new int[size];
-        for (int i = 0; i < size; i++) {
-            arr[i] = userInput.nextInt();
+        int size;
+        int[] arr;
+        try (Scanner userInput = new Scanner(System.in)) {
+            size = userInput.nextInt();
+            arr = new int[size];
+            for (int i = 0; i < size; i++) {
+                arr[i] = userInput.nextInt();
+            }
         }
-        userInput.close();
         int min = minVal(arr, size);
         int max = maxVal(arr, size);
         System.out.println("Minimum value is: " + min + ", and maximum value is: " + max);

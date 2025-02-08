@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class PalindromeInNumber {
     static boolean isPalindrome(int number) {
-        boolean isPalindrome = true;
+        boolean isPalindrome;
         int originalNumber = number;
         int reversedNumber = 0;
         while (number > 0) {
@@ -10,19 +10,15 @@ public class PalindromeInNumber {
             reversedNumber = reversedNumber * 10 + remainder;
             number /= 10;
         }
-        System.out.println(reversedNumber);
-        if (reversedNumber == originalNumber) {
-            isPalindrome = true;
-        } else {
-            isPalindrome = false;
-        }
+        isPalindrome = reversedNumber == originalNumber;
         return isPalindrome;
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int number = userInput.nextInt();
-        userInput.close();
+        int number;
+        try (Scanner userInput = new Scanner(System.in)) {
+            number = userInput.nextInt();
+        }
         boolean result = isPalindrome(number);
         if (result) {
             System.out.println("The number is a palindrome");

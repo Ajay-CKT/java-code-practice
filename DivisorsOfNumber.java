@@ -10,9 +10,10 @@ public class DivisorsOfNumber {
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int number = userInput.nextInt();
-        userInput.close();
+        int number;
+        try (Scanner userInput = new Scanner(System.in)) {
+            number = userInput.nextInt();
+        }
         allDivisorOfNumber(number);
     }
 }

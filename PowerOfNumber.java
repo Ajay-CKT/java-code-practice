@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.lang.Math;
 
 public class PowerOfNumber {
     static int power(int a, int b) {
@@ -19,9 +18,10 @@ public class PowerOfNumber {
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int number = userInput.nextInt();
-        userInput.close();
+        int number;
+        try (Scanner userInput = new Scanner(System.in)) {
+            number = userInput.nextInt();
+        }
         int reversedNumber = reverse(number);
         int aPowerReversedA = power(number, reversedNumber);
         System.out.printf("The power of %d and its reversed number %d is: %d", number, reversedNumber, aPowerReversedA);

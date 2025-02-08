@@ -14,9 +14,10 @@ public class SquareRoot {
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int number = userInput.nextInt();
-        userInput.close();
+        int number;
+        try (Scanner userInput = new Scanner(System.in)) {
+            number = userInput.nextInt();
+        }
         int result = SqRootForPerfectSquares(number);
         System.out.printf("The floor value of square root of %d is %d", number, result);
     }

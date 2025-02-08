@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.lang.Math;
 
 //Find Last Digit Of a^b for Large Numbers
 public class LastDigitNumber {
@@ -10,10 +9,12 @@ public class LastDigitNumber {
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int numberA = userInput.nextInt();
-        int numberB = userInput.nextInt();
-        userInput.close();
+        int numberA;
+        int numberB;
+        try (Scanner userInput = new Scanner(System.in)) {
+            numberA = userInput.nextInt();
+            numberB = userInput.nextInt();
+        }
         int result = lastDigit(numberA, numberB);
         System.out.println(result);
     }

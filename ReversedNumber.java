@@ -13,10 +13,11 @@ public class ReversedNumber {
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int number = userInput.nextInt();
-        System.out.println("The original number is: " + number);
-        userInput.close();
+        int number;
+        try (Scanner userInput = new Scanner(System.in)) {
+            number = userInput.nextInt();
+            System.out.println("The original number is: " + number);
+        }
         int result = reverse(number);
         System.out.println("The reversed number is: " + result);
     }

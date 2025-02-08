@@ -17,10 +17,11 @@ public class CountDigits {
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int number = userInput.nextInt();
-        System.out.println("The Number is: " + number);
-        userInput.close();
+        int number;
+        try (Scanner userInput = new Scanner(System.in)) {
+            number = userInput.nextInt();
+            System.out.println("The Number is: " + number);
+        }
         int result = countDigitInNumber(number);
         System.out.println(result);
     }

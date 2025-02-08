@@ -11,10 +11,12 @@ public class FindGCD {
     }
 
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-        int numberA = userInput.nextInt();
-        int numberB = userInput.nextInt();
-        userInput.close();
+        int numberA;
+        int numberB;
+        try (Scanner userInput = new Scanner(System.in)) {
+            numberA = userInput.nextInt();
+            numberB = userInput.nextInt();
+        }
         int result = gcdOfTwoNumbers(numberA, numberB);
         System.out.printf("The GCD of %d and %d is: %d", numberA, numberB, result);
     }
